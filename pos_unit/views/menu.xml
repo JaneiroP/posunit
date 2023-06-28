@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.actions.act_url" id="action_google_url">
+
+        <field name="name">Pos unit</field>
+
+        <field name="url">http://localhost:8075/posunit/home</field>
+
+        <field name="target">new</field>
+
+    </record>
+
+    <menuitem id="pos_unit_menu"
+              name="pos unit"
+              sequence="10"
+              action="action_google_url"/>
+
+</odoo>

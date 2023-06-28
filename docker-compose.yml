@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+  dbadmin:
+    image: dpage/pgadmin4:latest
+    depends_on:
+      - db
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+    ports:
+      - "8080:80"
+
+  db:
+    image: postgres:14.4
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - "5432:5432"
+
+#  web:
+#    image: odoo:15.0
+#    command: /usr/bin/odoo -c /etc/odoo/odoo.conf -u account_extras,contact_extras,sale_extras,stock_extras
+#    depends_on:
+#      - db
+#    ports:
+#      - "80:8069"
+#    volumes:
+#      - ./:/mnt/extra-addons
+#      - ./config:/etc/odoo
+#    environment:
+#      - HOST=db
+#      - USER=odoo
+#      - PASSWORD=admin
